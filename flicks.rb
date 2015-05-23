@@ -40,10 +40,10 @@
 # a_title = "goldfinger" #local variable
 # puts movie_listing(a_title)
 
-class Movie
+# class Movie
 
-	attr_accessor :title
-	attr_reader :rank
+# 	attr_accessor :title
+# 	attr_reader :rank
 
 	# same as the attr_reader :title
 	# def title
@@ -56,31 +56,31 @@ class Movie
 	# end
 
 
-	def initialize(title, rank=0)
-		@title = title.capitalize
-		@rank = rank
-		# puts "Created a movie object with title #{title} and rank #{rank}"
-	end
+# 	def initialize(title, rank=0)
+# 		@title = title.capitalize
+# 		@rank = rank
+# 		# puts "Created a movie object with title #{title} and rank #{rank}"
+# 	end
 
-	def normalized_rank
-		@rank / 10
-	end
+# 	def normalized_rank
+# 		@rank / 10
+# 	end
 
-	def thumbs_up
-		@rank +=1
-	end
+# 	def thumbs_up
+# 		@rank +=1
+# 	end
 
-	def thumbs_down
-		@rank -=1
-		# @rank = @rank - 1 same as above
-	end
+# 	def thumbs_down
+# 		@rank -=1
+# 		# @rank = @rank - 1 same as above
+# 	end
 
 
-	def to_s
-		"#{@title} has a rank of #{@rank}"
-	end
+# 	def to_s
+# 		"#{@title} has a rank of #{@rank}"
+# 	end
 
-end
+# end
 
 # movie1 = Movie.new("goonies", 100)
 # movie1.thumbs_up
@@ -126,27 +126,30 @@ end
 
 # session 10 - objects interacting
 
-class Playlist
-	def initialize(name)
-		@name = name
-		@movies = []
-	end
+# class Playlist
+# 	def initialize(name)
+# 		@name = name
+# 		@movies = []
+# 	end
 
-	def add_movie(movie)
-		@movies << movie
-	end
+# 	def add_movie(movie)
+# 		@movies << movie
+# 	end
 
-	def play
-		puts "#{@name}'s playlist:"
-		puts @movies
-		@movies.each do|movie|
-			movie.thumbs_up
-			puts movie
-		end
+# 	def play
+# 		puts "#{@name}'s playlist:"
+# 		puts @movies
+# 		@movies.each do|movie|
+# 			movie.thumbs_up
+# 			puts movie
+# 		end
 
-	end
+# 	end
 
-end
+# end
+
+# require_relative 'movie'
+require_relative 'playlist'
 
 
 movie1 = Movie.new("goonies", 10)
