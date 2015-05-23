@@ -45,10 +45,6 @@ class Movie
 	attr_accessor :title
 	attr_reader :rank
 
-	def normalized_rank
-		@rank / 10
-	end
-
 	# same as the attr_reader :title
 	# def title
 	# 	@title
@@ -66,6 +62,10 @@ class Movie
 		# puts "Created a movie object with title #{title} and rank #{rank}"
 	end
 
+	def normalized_rank
+		@rank / 10
+	end
+
 	def thumbs_up
 		@rank +=1
 	end
@@ -76,31 +76,28 @@ class Movie
 	end
 
 
-
-
-
 	def to_s
-		"#{@title} has a rank of #{normalized_rank}"
+		"#{@title} has a rank of #{@rank}"
 	end
 
 end
 
-movie1 = Movie.new("goonies", 100)
-movie1.thumbs_up
-puts movie1
-puts movie1.title
-movie1.title = "Gooneys!"
-puts movie1.title
-puts movie1.normalized_rank
-puts movie1.rank
+# movie1 = Movie.new("goonies", 100)
+# movie1.thumbs_up
+# puts movie1
+# puts movie1.title
+# movie1.title = "Gooneys!"
+# puts movie1.title
+# puts movie1.normalized_rank
+# puts movie1.rank
 
-movie2 = Movie.new("ghostbusters", 9)
-movie2.thumbs_down
-puts movie2
+# movie2 = Movie.new("ghostbusters", 9)
+# movie2.thumbs_down
+# puts movie2
 
 
-movie3 = Movie.new("goldfinger")
-puts movie3
+# movie3 = Movie.new("goldfinger")
+# puts movie3
 
 
 # movie2 = Movie.new("ghostbusters", 9)
@@ -110,3 +107,19 @@ puts movie3
 
 # movie2 = Movie.new
 # puts movie2.object_id
+
+
+# Session 9 Arrays
+
+movie1 = Movie.new("goonies", 10)
+movie2 = Movie.new("ghostbusters", 9)
+movie3 = Movie.new("goldfinger")
+
+movies = [movie1, movie2, movie3]
+
+puts movies
+
+movies.each do |m|
+	m.thumbs_up
+	puts m
+end
