@@ -41,6 +41,25 @@
 # puts movie_listing(a_title)
 
 class Movie
+
+	attr_accessor :title
+	attr_reader :rank
+
+	def normalized_rank
+		@rank / 10
+	end
+
+	# same as the attr_reader :title
+	# def title
+	# 	@title
+	# end
+
+	# same as the attr_writer :title
+	# def title=(new_title)
+	# 	@title = new_title
+	# end
+
+
 	def initialize(title, rank=0)
 		@title = title.capitalize
 		@rank = rank
@@ -56,14 +75,24 @@ class Movie
 		# @rank = @rank - 1 same as above
 	end
 
+
+
+
+
 	def to_s
-		"#{@title} has a rank of #{@rank}"
+		"#{@title} has a rank of #{normalized_rank}"
 	end
+
 end
 
-movie1 = Movie.new("goonies", 10)
+movie1 = Movie.new("goonies", 100)
 movie1.thumbs_up
 puts movie1
+puts movie1.title
+movie1.title = "Gooneys!"
+puts movie1.title
+puts movie1.normalized_rank
+puts movie1.rank
 
 movie2 = Movie.new("ghostbusters", 9)
 movie2.thumbs_down
