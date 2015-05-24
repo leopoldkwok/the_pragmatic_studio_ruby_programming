@@ -10,7 +10,7 @@ class Movie
 	end
 
 	def hit?
-		@rank >= 10
+		@rank >=10
 	end
 
 	def status

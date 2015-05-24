@@ -10,9 +10,10 @@ class Playlist
 		@movies << movie
 	end
 
-	def play
+	def play(number_rolled)
 		puts "#{@name}'s playlist:"
 		puts @movies
+
 		@movies.each do|movie|
 			movie.thumbs_up
 			puts movie
