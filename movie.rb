@@ -10,11 +10,21 @@ class Movie
 		# puts "Created a movie object with title #{title} and rank #{rank}"
 	end
 
+	def each_snack
+		@snack_carbs.each do |name, carbs|
+			snack = Snack.new(name, carbs)
+			yield snack 
+		end
+
+
+	end
+
 	def ate_snack(snack)
 		@snack_carbs[snack.name] += snack.carbs
 		puts "#{@title} led to #{snack.carbs} #{snack.name} carbs being consumed."
 		puts "#{@title}'s snacks: #{@snack_carbs}"
 	end
+
 
 	def carbs_consumed
 		@snack_carbs.values.reduce(0, :+)
