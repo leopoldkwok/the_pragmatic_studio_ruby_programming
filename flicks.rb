@@ -156,17 +156,38 @@ movie1 = Movie.new("goonies", 10)
 movie2 = Movie.new("ghostbusters", 9)
 movie3 = Movie.new("goldfinger")
 
-playlist1 = Playlist.new("Kermit")
+playlist = Playlist.new("Kermit")
+playlist.load(ARGV.shift || "movies.csv")
 
-playlist1.add_movie(movie1)
-playlist1.add_movie(movie3)
-playlist1.add_movie(movie2)
+loop do 
+	puts "\nHow many viewings? ('quit' to exit)"
+	answer = gets.chomp.downcase
+	case answer
+	when /^\d+$/ #match the characters to a number
+		playlist.play(answer.to_i)
+	when 'quit', 'exit'
+		playlist.print_stats 
+		break
+	else
+		puts "Please enter a number or 'quit'"
+	end
+end
 
-playlist1.play(3)
-playlist1.print_stats
+playlist.save
 
+
+# playlist.add_movie(movie1)
+# playlist.add_movie(movie3)
+# playlist.add_movie(movie2)
+
+
+
+# playlist1.print_stats
+
+# puts "How many viewings?"
+# answer = gets.chomp
+# puts "Enjoy your #{answer} viewings.."
 # playlist1.play
-
 # playlist2 = Playlist.new("Fozzie")
 # playlist2.add_movie(movie3)
 

@@ -10,6 +10,15 @@ class Movie
 		# puts "Created a movie object with title #{title} and rank #{rank}"
 	end
 
+	def self.from_csv(line)
+		title, rank = line.split(',')
+		Movie.new(title, Integer(rank))
+	end
+	
+	def to_csv
+		"#{@title}, #{@rank}"
+	end
+
 	def each_snack
 		@snack_carbs.each do |name, carbs|
 			snack = Snack.new(name, carbs)
